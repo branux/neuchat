@@ -18,3 +18,8 @@
 
 - WebApiConfig changes
 - Create a hub
+- Publish to Azure (from step 1)
+
+5] Create Xamarin Forms PCL project
+
+- Update Solution NUGET packages for updated Forms and Platform packages
