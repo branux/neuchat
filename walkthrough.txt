@@ -1,0 +1,16 @@
+1] Create new Azure Mobile Services with .NET Backend through Azure Portal and Download starter serverside project
+
+2] Add/Update additional NUGET packages
+
+- WindowsAzure.MobileServices.Backend
+- WindowsAzure.MobileServices.Backend.Tables
+- WindowsAzure.MobileServices.Backend.Entities
+- WindowsAzure.MobileServices.Backend.SignalR
+
+3] Remove template generated objects
+
+- DataObjects.TodoItem 
+- DbSet<TodoItem> in neuContext
+- TodoItemController
+- Seed initializer for sample TodoItem models
+
