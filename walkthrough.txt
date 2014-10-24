@@ -14,3 +14,7 @@
 - TodoItemController
 - Seed initializer for sample TodoItem models
 
+4] Add SignalR basics to backend
+
+- WebApiConfig changes
+- Create a hub

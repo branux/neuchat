@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Web.Http;
 using Microsoft.WindowsAzure.Mobile.Service;
-using neuchatService.DataObjects;
 using neuchatService.Models;
+using Microsoft.WindowsAzure.Mobile.Service.Config;
 
 namespace neuchatService
 {
@@ -12,6 +12,9 @@ namespace neuchatService
     {
         public static void Register()
         {
+            // Configure SignalR
+            SignalRExtensionConfig.Initialize();
+
             // Use this class to set configuration options for your mobile service
             ConfigOptions options = new ConfigOptions();
 
@@ -30,17 +33,6 @@ namespace neuchatService
     {
         protected override void Seed(neuchatContext context)
         {
-            //List<TodoItem> todoItems = new List<TodoItem>
-            //{
-            //    new TodoItem { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
-            //    new TodoItem { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false },
-            //};
-
-            //foreach (TodoItem todoItem in todoItems)
-            //{
-            //    context.Set<TodoItem>().Add(todoItem);
-            //}
-
             base.Seed(context);
         }
     }
