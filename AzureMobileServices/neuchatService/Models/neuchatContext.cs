@@ -25,7 +25,7 @@ namespace neuchatService.Models
         {
         } 
 
-        public DbSet<TodoItem> TodoItems { get; set; }
+        //public DbSet<TodoItem> TodoItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
