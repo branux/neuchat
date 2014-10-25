@@ -181,3 +181,4 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+NeuChat/NeuChat/NeuChat/Resources/ApiKeys.cs

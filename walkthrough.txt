@@ -37,3 +37,9 @@
 - ListView DataTemplate ViewCell
 - RelayCommand implementation
 
+8] Adding Azure Mobile Services
+
+- Add Xamarin Components per platform
+- Initialize azure mobile services per platform
+
+9] Add client SignalR connection handling
