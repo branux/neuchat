@@ -17,6 +17,10 @@ namespace NeuChat.WinPhone {
             InitializeComponent();
 
             Forms.Init();
+
+            // Configure IOC
+            Bootstrapper.Configure();
+
             Content = NeuChat.App.GetMainPage().ConvertPageToUIElement(this);
         }
     }

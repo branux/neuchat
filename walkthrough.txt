@@ -23,3 +23,9 @@
 5] Create Xamarin Forms PCL project
 
 - Update Solution NUGET packages for updated Forms and Platform packages
+
+6] Add MVVM Light for Solution Architecture
+
+- Add ViewModelLocator
+- Add Bootstrappers to each platform
+- Add draft main UI page in XAML

@@ -17,6 +17,9 @@ namespace NeuChat.Droid {
 
             Xamarin.Forms.Forms.Init(this, bundle);
 
+            // Configure IOC
+            Bootstrapper.Configure();
+
             SetPage(App.GetMainPage());
         }
     }

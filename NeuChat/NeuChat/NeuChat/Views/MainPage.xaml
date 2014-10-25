@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+					   x:Class="NeuChat.Views.MainPage">
+  <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+        RowSpacing="0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal"
+                 Grid.Column="0" Grid.Row="0"
+                 Padding="10"
+                 BackgroundColor="#003399">
+      
+      <Label Text="NeuChat" TextColor="#C8EDFF"
+             HorizontalOptions="StartAndExpand" VerticalOptions="Center" 
+             Font="Bold,Large" />
+
+      <Button Text="Logout"
+              HorizontalOptions="End" VerticalOptions="Center" />
+    </StackLayout>
+
+    <RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                    Grid.Column="0" Grid.Row="1">
+      <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical"
+                   BackgroundColor="#EEFAFF"
+                   RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+        <!-- Chat messages will go here -->
+        <ListView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+      </StackLayout>
+
+      <!-- Begin Busy/Loading UX -->
+      <BoxView Color="Black" Opacity="0.35"
+               IsVisible="False"
+               RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+               RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
+               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"/>
+      
+      <ActivityIndicator HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                         Color="#003399"
+                         IsRunning="True"
+                         IsVisible="False"
+                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.33}"
+                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.33}"
+                         RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}" />
+      <!-- End Busy/Loading UX -->
+    </RelativeLayout>
+
+    <!-- Begin Chat Entry UX -->
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal"
+                 Grid.Column="0" Grid.Row="2"
+                 BackgroundColor="#003399">
+      <Entry HorizontalOptions="FillAndExpand" VerticalOptions="Center" Placeholder="Enter chat message" />
+
+      <Button Text="Send"
+              HorizontalOptions="End" VerticalOptions="Center" />
+    </StackLayout>
+    <!-- End Chat Entry UX -->
+  </Grid>
+</ContentPage>
