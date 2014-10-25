@@ -1,8 +1,6 @@
-﻿using NeuChat.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using NeuChat.Resources;
+using NeuChat.Views;
 using Xamarin.Forms;
 
 namespace NeuChat {
@@ -24,6 +22,27 @@ namespace NeuChat {
         }
         #endregion
 
+        /// <summary>
+        /// Azure mobile service client
+        /// </summary>
+        public static MobileServiceClient MobileService = new MobileServiceClient(ApiKeys.AZURE_URL, ApiKeys.AZURE_KEY);
+
+        /// <summary>
+        /// Gets a value indicating whether the current user is logged in.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if the current user is logged in; otherwise, <c>false</c>.
+        /// </value>
+        public static bool IsLoggedIn {
+            get {
+                return (MobileService.CurrentUser != null);
+            }
+        }
+
+        /// <summary>
+        /// Gets the main page.
+        /// </summary>
+        /// <returns></returns>
         public static Page GetMainPage() {
             return new MainPage();
         }

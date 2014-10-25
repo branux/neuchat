@@ -15,6 +15,9 @@ namespace NeuChat.Droid {
         protected override void OnCreate(Bundle bundle) {
             base.OnCreate(bundle);
 
+            // Configure AMS
+            Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+
             Xamarin.Forms.Forms.Init(this, bundle);
 
             // Configure IOC

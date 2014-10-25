@@ -24,6 +24,9 @@ namespace NeuChat.iOS {
         // You have 17 seconds to return from this method, or iOS will terminate your application.
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options) {
+            // Configure AMS
+            Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+
             Forms.Init();
 
             // Configure IOC
