@@ -36,7 +36,30 @@
                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
         <!-- Chat messages will go here -->
-        <ListView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+        <ListView x:Name="chatListView"
+                  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                  ItemsSource="{Binding ChatEntries}"
+                  HasUnevenRows="True">
+          
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+                <ViewCell.View>
+                  <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="5">
+                    <StackLayout VerticalOptions="CenterAndExpand" Orientation="Vertical">
+                      <Label Text="{Binding Sender}" TextColor="#003399" HorizontalOptions="Center" />
+                      <Label Text="{Binding SentUtc}" TextColor="#777" Font="Italic,Micro" />
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="CenterAndExpand" Orientation="Vertical" Padding="5,0,0,5">
+                      <Label Text="{Binding MessageBody}" TextColor="#777" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                    </StackLayout>
+                  </StackLayout>
+                </ViewCell.View>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
       </StackLayout>
 
       <!-- Begin Busy/Loading UX -->
@@ -62,9 +85,12 @@
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal"
                  Grid.Column="0" Grid.Row="2"
                  BackgroundColor="#003399">
-      <Entry HorizontalOptions="FillAndExpand" VerticalOptions="Center" Placeholder="Enter chat message" />
+      <Entry Text="{Binding ChatMessage}"
+             HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+             Placeholder="Enter chat message" />
 
       <Button Text="Send"
+              Command="{Binding SendMessageCommand}"
               HorizontalOptions="End" VerticalOptions="Center" />
     </StackLayout>
     <!-- End Chat Entry UX -->

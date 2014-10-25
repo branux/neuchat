@@ -29,3 +29,11 @@
 - Add ViewModelLocator
 - Add Bootstrappers to each platform
 - Add draft main UI page in XAML
+
+7] Initial Databinding and local messaging
+
+- Pub/Sub with MessagingCenter
+- Databind ListView -> ObservableCollection
+- ListView DataTemplate ViewCell
+- RelayCommand implementation
+
