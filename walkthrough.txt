@@ -42,4 +42,13 @@
 - Add Xamarin Components per platform
 - Initialize azure mobile services per platform
 
-9] Add client SignalR connection handling
+9] Adding Google Login and Logout
+
+- Create Google API Console project (web app)
+- Create OAUTH for Google project
+- Configure Azure Mobile Service Identity provider
+- Implement platform injection for Login and Logout
+- Adding Login application logic
+-- Platform weirdness
+- Adding Logout application logic
+-- Azure and Cookie platform injection

@@ -1,5 +1,7 @@
-﻿using Microsoft.WindowsAzure.MobileServices;
+﻿using GalaSoft.MvvmLight.Ioc;
+using Microsoft.WindowsAzure.MobileServices;
 using NeuChat.Resources;
+using NeuChat.Services;
 using NeuChat.Views;
 using Xamarin.Forms;
 
@@ -46,5 +48,15 @@ namespace NeuChat {
         public static Page GetMainPage() {
             return new MainPage();
         }
+
+        public static Page GetLoginPage() {
+            return new LoginPage();
+        }
+
+        public static void Logout() {
+            LoginManager.Logout();
+        }
+
+        public static ILoginManager LoginManager;
     }
 }

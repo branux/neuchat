@@ -1,16 +1,19 @@
 ﻿using NeuChat.Messages;
+using System.Threading.Tasks;
 using Xamarin.Forms;
+
 namespace NeuChat.Views {
     public partial class MainPage {
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MainPage"/> class.
+        /// Initializes a new instance of the <see cref="MainPage" /> class.
         /// </summary>
         public MainPage() {
             InitializeComponent();
 
             // Set view model
             BindingContext = App.Locator.Main;
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         /// <summary>
@@ -23,6 +26,10 @@ namespace NeuChat.Views {
             base.OnAppearing();
 
             Subscribe();
+
+            if (!App.IsLoggedIn) {
+                App.LoginManager.Logout();
+            }
         }
 
         /// <summary>
@@ -37,10 +44,16 @@ namespace NeuChat.Views {
             Unsubscribe();
         }
 
+        /// <summary>
+        /// Subscribes to message bus
+        /// </summary>
         private void Subscribe() {
             MessagingCenter.Subscribe<ChatReceivedMessage>(this, "Chat Received", OnChatReceived);
         }
 
+        /// <summary>
+        /// Unsubscribes from message bus
+        /// </summary>
         private void Unsubscribe() {
             MessagingCenter.Unsubscribe<ChatReceivedMessage>(this, "Chat Received");
         }

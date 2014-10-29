@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+					   x:Class="NeuChat.Views.LoginPage">
+  <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical"
+               Padding="10">
+    <Label Text="NeuChat" Font="Large,Bold"
+           HorizontalOptions="Center" />
+    
+    <Button Text="Sign in"
+            Image="btn_gplus_white_normal.png"
+            HorizontalOptions="Center"
+            Command="{Binding LoginCommand}" />
+  </StackLayout>
+</ContentPage>

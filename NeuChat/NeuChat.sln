@@ -11,6 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuChat.Android", "NeuChat\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuChat.WinPhone", "NeuChat\NeuChat.WinPhone\NeuChat.WinPhone.csproj", "{737BA2A9-97BE-41E1-9C60-A67BB9AFDEBC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{539D157E-6BDF-4208-85AD-C6A74FF39226}"
+	ProjectSection(SolutionItems) = preProject
+		..\walkthrough.txt = ..\walkthrough.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU

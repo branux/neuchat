@@ -1,19 +1,13 @@
-﻿using System;
-
 using Android.App;
-using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Android.OS;
-
-using Xamarin.Forms.Platform.Android;
-using NeuChat.Services;
 using Android.Content;
+using Android.Content.PM;
+using Android.OS;
+using NeuChat.Services;
+using Xamarin.Forms.Platform.Android;
 
 namespace NeuChat.Droid {
-    [Activity(Label = "NeuChat", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : AndroidActivity, ILoginManager {
+    [Activity(Label = "NeuChat", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    public class ChatRoomActivity : AndroidActivity, ILoginManager {
         protected override void OnCreate(Bundle bundle) {
             base.OnCreate(bundle);
 
@@ -26,16 +20,16 @@ namespace NeuChat.Droid {
             Bootstrapper.Configure();
             App.LoginManager = this;
 
-            SetPage(App.GetLoginPage());
+            ShowMainPage();
         }
 
         public void Logout() {
-            // Do nothing
+            StartActivity(new Intent(this, typeof(MainActivity)));
+            this.Finish();
         }
 
         public void ShowMainPage() {
-            StartActivity(new Intent(this, typeof(ChatRoomActivity)));
-            this.Finish();
+            SetPage(App.GetMainPage());
         }
     }
 }

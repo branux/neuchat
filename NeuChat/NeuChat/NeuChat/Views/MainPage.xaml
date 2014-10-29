@@ -24,6 +24,7 @@
              Font="Bold,Large" />
 
       <Button Text="Logout"
+              Command="{Binding LogoutCommand}"
               HorizontalOptions="End" VerticalOptions="Center" />
     </StackLayout>
 

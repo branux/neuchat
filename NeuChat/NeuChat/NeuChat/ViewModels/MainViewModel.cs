@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.Command;
 using NeuChat.Messages;
 using NeuChat.Models;
+using NeuChat.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -55,12 +56,26 @@ namespace NeuChat.ViewModels {
             }
         }
 
+        private RelayCommand _logoutCommand;
+        public RelayCommand LogoutCommand {
+            get {
+                return _logoutCommand ?? (_logoutCommand = new RelayCommand(() => {
+                    _authService.Logout();
+                    App.Logout();
+                }));
+            }
+        }
+
         #endregion
+
+        private IAuthenticatorService _authService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainViewModel"/> class.
         /// </summary>
-        public MainViewModel() {
+        public MainViewModel(IAuthenticatorService authService) {
+            _authService = authService;
+
             _rawChatEntries = new List<ChatEntry>();
             _chatEntries = new ObservableCollection<ChatEntry>();
         }

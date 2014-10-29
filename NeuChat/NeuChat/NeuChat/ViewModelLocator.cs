@@ -14,6 +14,7 @@ namespace NeuChat {
 
             // Register all ViewModels here
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<LoginViewModel>();
         }
 
         /// <summary>
@@ -26,6 +27,19 @@ namespace NeuChat {
         public MainViewModel Main {
             get {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+
+        /// <summary>
+        /// Gets the login view model.
+        /// </summary>
+        /// <value>
+        /// The login view model.
+        /// </value>
+        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "This non-static member is needed for data binding purposes.")]
+        public LoginViewModel Login {
+            get {
+                return ServiceLocator.Current.GetInstance<LoginViewModel>();
             }
         }
     }
