@@ -13,11 +13,13 @@ The presentation is designed to give a practical hands on tutorial to learn far 
 
 ---
 
-1] Create new Azure Mobile Services with .NET Backend through Azure Portal and Download starter serverside project
+#### 1] Create new Azure Mobile Services Project
+- .NET Backend through Azure Portal
+- Download starter serverside project
 
 ---
 
-2] Add/Update additional NUGET packages
+#### 2] Add/Update additional NUGET packages
 
 - WindowsAzure.MobileServices.Backend
 - WindowsAzure.MobileServices.Backend.Tables
@@ -26,7 +28,7 @@ The presentation is designed to give a practical hands on tutorial to learn far 
 
 ---
 
-3] Remove template generated objects
+#### 3] Remove template generated objects
 
 - DataObjects.TodoItem 
 - DbSet<TodoItem> in neuContext
@@ -35,7 +37,7 @@ The presentation is designed to give a practical hands on tutorial to learn far 
 
 ---
 
-4] Add SignalR basics to backend
+#### 4] Add SignalR basics to backend
 
 - WebApiConfig changes
 - Create a hub
@@ -43,13 +45,13 @@ The presentation is designed to give a practical hands on tutorial to learn far 
 
 ---
 
-5] Create Xamarin Forms PCL project
+#### 5] Create Xamarin Forms PCL project
 
 - Update Solution NUGET packages for updated Forms and Platform packages
 
 ---
 
-6] Add MVVM Light for Solution Architecture
+#### 6] Add MVVM Light for Solution Architecture
 
 - Add ViewModelLocator
 - Add Bootstrappers to each platform
@@ -57,7 +59,7 @@ The presentation is designed to give a practical hands on tutorial to learn far 
 
 ---
 
-7] Initial Databinding and local messaging
+#### 7] Initial Databinding and local messaging
 
 - Pub/Sub with MessagingCenter
 - Databind ListView -> ObservableCollection
@@ -66,14 +68,14 @@ The presentation is designed to give a practical hands on tutorial to learn far 
 
 ---
 
-8] Adding Azure Mobile Services
+#### 8] Adding Azure Mobile Services
 
 - Add Xamarin Components per platform
 - Initialize azure mobile services per platform
 
 ---
 
-9] Adding Google Login and Logout
+#### 9] Adding Google Login and Logout
 
 - Create Google API Console project (web app)
 - Create OAUTH for Google project
@@ -86,7 +88,7 @@ The presentation is designed to give a practical hands on tutorial to learn far 
 
 ---
 
-10.a] Updating Azure SignalR backend
+#### 10.a] Updating Azure SignalR backend
 
 - Updating the hub implementation
 - Adding Authorization
@@ -94,7 +96,7 @@ The presentation is designed to give a practical hands on tutorial to learn far 
 
 ---
 
-10.b] Updating mobile clients to connect to SignalR
+#### 10.b] Updating mobile clients to connect to SignalR
 
 - Add SignalR components/nuget (for winphone and shared pcl)
 - Add hub connection service
