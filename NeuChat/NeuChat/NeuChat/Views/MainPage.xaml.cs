@@ -1,4 +1,5 @@
 ﻿using NeuChat.Messages;
+using NeuChat.ViewModels;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -29,6 +30,9 @@ namespace NeuChat.Views {
 
             if (!App.IsLoggedIn) {
                 App.LoginManager.Logout();
+            }
+            else {
+                Task.Factory.StartNew(async () => await ((MainViewModel)BindingContext).ConnectToChat());
             }
         }
 
@@ -64,6 +68,7 @@ namespace NeuChat.Views {
         /// <param name="message">The message.</param>
         private void OnChatReceived(ChatReceivedMessage message) {
             // We can do something UI related here if needed
+            ((MainViewModel)BindingContext).AddMessage(message.ChatEntry);
         }
     }
 }

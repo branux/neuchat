@@ -10,6 +10,7 @@ namespace NeuChat.Droid {
         /// </summary>
         public static void Configure() {
             SimpleIoc.Default.Register<IAuthenticatorService, AndroidAuthenticatorService>();
+            SimpleIoc.Default.Register<IChatHub, ChatHub>();
         }
     }
 }

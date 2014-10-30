@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace NeuChat.ViewModels {
@@ -52,7 +53,7 @@ namespace NeuChat.ViewModels {
         private RelayCommand _sendMessageCommand;
         public RelayCommand SendMessageCommand {
             get {
-                return _sendMessageCommand ?? (_sendMessageCommand = new RelayCommand(ProcessEntry));
+                return _sendMessageCommand ?? (_sendMessageCommand = new RelayCommand(async () => await ExecuteSendCommand()));
             }
         }
 
@@ -69,12 +70,14 @@ namespace NeuChat.ViewModels {
         #endregion
 
         private IAuthenticatorService _authService;
+        private IChatHub _chatHub;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainViewModel"/> class.
         /// </summary>
-        public MainViewModel(IAuthenticatorService authService) {
+        public MainViewModel(IAuthenticatorService authService, IChatHub chatHub) {
             _authService = authService;
+            _chatHub = chatHub;
 
             _rawChatEntries = new List<ChatEntry>();
             _chatEntries = new ObservableCollection<ChatEntry>();
@@ -83,15 +86,8 @@ namespace NeuChat.ViewModels {
         /// <summary>
         /// Processes the entry.
         /// </summary>
-        private void ProcessEntry() {
-            if (string.IsNullOrEmpty(ChatMessage)) return;
-
-            var msg = new ChatEntry {
-                Sender = "Local",
-                SentUtc = DateTime.UtcNow,
-                MessageBody = ChatMessage
-            };
-
+        public void AddMessage(ChatEntry msg) {
+            
             // Add to raw msg stack
             _rawChatEntries.Add(msg);
 
@@ -104,14 +100,35 @@ namespace NeuChat.ViewModels {
 
             // Bind reversed top 25 to observable collection
             ChatEntries = new ObservableCollection<ChatEntry>(tmp);
+        }
+
+        /// <summary>
+        /// Connects to chat.
+        /// </summary>
+        public async Task ConnectToChat() {
+            await _chatHub.ConnectAsync();
+        }
+
+        /// <summary>
+        /// Executes the send command.
+        /// </summary>
+        /// <returns></returns>
+        private async Task ExecuteSendCommand() {
+
+            if (string.IsNullOrEmpty(ChatMessage)) return;
+
+            var msg = new ChatEntry {
+                Sender = "Local",
+                SentUtc = DateTime.UtcNow,
+                MessageBody = ChatMessage
+            };
+
+            AddMessage(msg);
 
             // Clear the user input
             ChatMessage = string.Empty;
 
-            // Messaging not used yet... just putting in place
-            MessagingCenter.Send<ChatReceivedMessage>(new ChatReceivedMessage {
-                ChatEntry = msg
-            }, "Send Message");
+            await _chatHub.SendMessageAsync(msg);
         }
     }
 }
