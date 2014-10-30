@@ -52,3 +52,9 @@
 -- Platform weirdness
 - Adding Logout application logic
 -- Azure and Cookie platform injection
+
+10.a] Updating Azure SignalR
+
+- Updating the hub implementation
+- Adding Authorization
+- Publish new AMS backend
