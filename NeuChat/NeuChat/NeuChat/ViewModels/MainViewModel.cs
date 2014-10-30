@@ -118,7 +118,7 @@ namespace NeuChat.ViewModels {
             if (string.IsNullOrEmpty(ChatMessage)) return;
 
             var msg = new ChatEntry {
-                Sender = "Local",
+                Sender = App.MobileService.CurrentUser.UserId,
                 SentUtc = DateTime.UtcNow,
                 MessageBody = ChatMessage
             };
