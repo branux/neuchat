@@ -106,7 +106,12 @@ namespace NeuChat.ViewModels {
         /// Connects to chat.
         /// </summary>
         public async Task ConnectToChat() {
-            await _chatHub.ConnectAsync();
+            try {
+                await _chatHub.ConnectAsync();
+            }
+            catch (UnauthorizedAccessException) {
+                App.LoginManager.Logout();
+            }
         }
 
         /// <summary>

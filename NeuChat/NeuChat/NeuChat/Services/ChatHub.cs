@@ -25,18 +25,12 @@ namespace NeuChat.Services {
             }
             else {
                 throw new UnauthorizedAccessException();
-                //_hubConnection.Headers["x-zumo-application"] = NeuChat.App.MobileService.ApplicationKey;
             }
 
             _proxy = _hubConnection.CreateHubProxy("ChatHub");
 
             await _hubConnection.Start();
-            await SendMessageAsync(new ChatEntry {
-                Sender = "System",
-                SentUtc = DateTime.UtcNow,
-                MessageBody = string.Format("User joined: {0}", NeuChat.App.MobileService.CurrentUser.UserId)
-            });
-
+            
             _proxy.On<ChatEntry>("BroadcastMessage", OnReceivedMessage);
         }
 

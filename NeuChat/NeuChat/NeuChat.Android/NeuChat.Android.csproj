@@ -144,7 +144,6 @@
     <XamarinComponentReference Include="signalr">
       <Visible>False</Visible>
       <Version>2.1.2</Version>
-      <InstallationInProgress>True</InstallationInProgress>
     </XamarinComponentReference>
   </ItemGroup>
   <ItemGroup />
