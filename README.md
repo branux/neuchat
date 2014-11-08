@@ -101,3 +101,8 @@ The presentation is designed to give a practical hands on tutorial to learn far 
 - Add SignalR components/nuget (for winphone and shared pcl)
 - Add hub connection service
 - Add hub initialization to OnAppearing for main view
+
+#### 11] Adding some flair
+
+- Add app icon (Android and WP)
+- Add a better looking and handling login page

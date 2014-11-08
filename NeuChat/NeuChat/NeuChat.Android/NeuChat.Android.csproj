@@ -130,6 +130,8 @@
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Drawable\btn_gplus_white_normal.png" />
+    <AndroidResource Include="Resources\Drawable\neuchat_icon.png" />
+    <AndroidResource Include="Resources\Drawable\neuchat_logo.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NeuChat\NeuChat.csproj">
