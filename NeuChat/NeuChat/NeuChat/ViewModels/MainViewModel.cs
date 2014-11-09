@@ -28,19 +28,6 @@ namespace NeuChat.ViewModels {
             }
         }
 
-        private string _avatarUrl;
-        public const string AvatarUrlPropertyName = "AvatarUrl";
-
-        public string AvatarUrl {
-            get { return _avatarUrl; }
-            set {
-                if (_avatarUrl != value) {
-                    _avatarUrl = value;
-                    RaisePropertyChanged(AvatarUrlPropertyName);
-                }
-            }
-        }
-
         private List<ChatEntry> _rawChatEntries;
         private ObservableCollection<ChatEntry> _chatEntries;
         public const string ChatEntriesPropertyName = "ChatEntries";
@@ -110,7 +97,10 @@ namespace NeuChat.ViewModels {
             _rawChatEntries = new List<ChatEntry>();
             _chatEntries = new ObservableCollection<ChatEntry>();
 
-            _avatarUrl = "http://www.halleymedia.com/wp-content/uploads/2014/06/generic_user_image.png";
+            UserInfo = new UserInfo {
+                Name = App.MobileService.CurrentUser.UserId,
+                Picture = "http://www.halleymedia.com/wp-content/uploads/2014/06/generic_user_image.png"
+            };
         }
 
         /// <summary>
