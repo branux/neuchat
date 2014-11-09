@@ -11,6 +11,7 @@ namespace NeuChat.iOS {
         public static void Configure() {
             SimpleIoc.Default.Register<IAuthenticatorService, AppleAuthenticatorService>();
             SimpleIoc.Default.Register<IChatHub, ChatHub>();
+            SimpleIoc.Default.Register<IUserProfileService, UserProfileService>();
         }
     }
 }

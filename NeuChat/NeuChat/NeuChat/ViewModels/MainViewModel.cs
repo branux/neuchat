@@ -15,6 +15,32 @@ namespace NeuChat.ViewModels {
 
         #region Bindable Properties
 
+        private UserInfo _userInfo;
+        public const string UserInfoPropertyName = "UserInfo";
+
+        public UserInfo UserInfo {
+            get {
+                return _userInfo;
+            }
+            set {
+                _userInfo = value;
+                RaisePropertyChanged(UserInfoPropertyName);
+            }
+        }
+
+        private string _avatarUrl;
+        public const string AvatarUrlPropertyName = "AvatarUrl";
+
+        public string AvatarUrl {
+            get { return _avatarUrl; }
+            set {
+                if (_avatarUrl != value) {
+                    _avatarUrl = value;
+                    RaisePropertyChanged(AvatarUrlPropertyName);
+                }
+            }
+        }
+
         private List<ChatEntry> _rawChatEntries;
         private ObservableCollection<ChatEntry> _chatEntries;
         public const string ChatEntriesPropertyName = "ChatEntries";
@@ -71,16 +97,20 @@ namespace NeuChat.ViewModels {
 
         private IAuthenticatorService _authService;
         private IChatHub _chatHub;
+        private IUserProfileService _profileService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainViewModel"/> class.
         /// </summary>
-        public MainViewModel(IAuthenticatorService authService, IChatHub chatHub) {
+        public MainViewModel(IAuthenticatorService authService, IChatHub chatHub, IUserProfileService profileService) {
             _authService = authService;
             _chatHub = chatHub;
+            _profileService = profileService;
 
             _rawChatEntries = new List<ChatEntry>();
             _chatEntries = new ObservableCollection<ChatEntry>();
+
+            _avatarUrl = "http://www.halleymedia.com/wp-content/uploads/2014/06/generic_user_image.png";
         }
 
         /// <summary>
@@ -115,6 +145,15 @@ namespace NeuChat.ViewModels {
         }
 
         /// <summary>
+        /// Fetch user profile information
+        /// </summary>
+        public async Task FetchProfile() {
+            var profile = await _profileService.GetUserInfoAsync();
+            
+            UserInfo = profile;
+        }
+
+        /// <summary>
         /// Executes the send command.
         /// </summary>
         /// <returns></returns>
@@ -123,7 +162,7 @@ namespace NeuChat.ViewModels {
             if (string.IsNullOrEmpty(ChatMessage)) return;
 
             var msg = new ChatEntry {
-                Sender = App.MobileService.CurrentUser.UserId,
+                Sender = UserInfo.Name,
                 SentUtc = DateTime.UtcNow,
                 MessageBody = ChatMessage
             };

@@ -106,3 +106,10 @@ The presentation is designed to give a practical hands on tutorial to learn far 
 
 - Add app icon (Android and WP)
 - Add a better looking and handling login page
+
+#### 12] The personal touch
+
+- Add backend support for Google Oauth call for userinfo scope
+- Add backend custom api service
+- Add user info consumer to client using Mobile Service Invoke API
+- Add user name and picture to chat screen

@@ -11,6 +11,7 @@ namespace NeuChat.WinPhone {
         public static void Configure() {
             SimpleIoc.Default.Register<IAuthenticatorService, WindowsAuthenticatorService>();
             SimpleIoc.Default.Register<IChatHub, ChatHub>();
+            SimpleIoc.Default.Register<IUserProfileService, UserProfileService>();
         }
     }
 }

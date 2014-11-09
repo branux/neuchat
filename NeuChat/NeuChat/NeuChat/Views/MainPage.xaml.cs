@@ -32,7 +32,10 @@ namespace NeuChat.Views {
                 App.LoginManager.Logout();
             }
             else {
-                Task.Factory.StartNew(async () => await ((MainViewModel)BindingContext).ConnectToChat());
+                Task.Factory.StartNew(async () => {
+                    await ((MainViewModel)BindingContext).ConnectToChat();
+                    await ((MainViewModel)BindingContext).FetchProfile();
+                });
             }
         }
 

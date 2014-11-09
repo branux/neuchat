@@ -204,14 +204,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="DataObjects\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\UserInfoController.cs" />
     <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Models\ChatEntry.cs" />
     <Compile Include="Models\neuchatContext.cs" />
+    <Compile Include="Models\UserInfo.cs" />
     <Compile Include="ScheduledJobs\SampleJob.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

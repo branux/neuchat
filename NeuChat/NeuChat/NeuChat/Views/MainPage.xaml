@@ -2,12 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 					   x:Class="NeuChat.Views.MainPage">
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness">
+      <OnPlatform.iOS>
+        0, 20, 0, 0
+      </OnPlatform.iOS>
+      <OnPlatform.Android>
+        0, 0, 0, 0
+      </OnPlatform.Android>
+      <OnPlatform.WinPhone>
+        0, 0, 0, 0
+      </OnPlatform.WinPhone>
+    </OnPlatform>
+  </ContentPage.Padding>
+  
   <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
         RowSpacing="0">
     <Grid.RowDefinitions>
-      <RowDefinition Height="Auto" />
+      <RowDefinition Height="72" />
       <RowDefinition Height="*" />
-      <RowDefinition Height="Auto" />
+      <RowDefinition Height="72" />
     </Grid.RowDefinitions>
 
     <Grid.ColumnDefinitions>
@@ -16,8 +30,10 @@
 
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal"
                  Grid.Column="0" Grid.Row="0"
-                 Padding="10"
+                 Padding="0"
                  BackgroundColor="#003399">
+
+      <Image Source="{Binding UserInfo.Picture}" />
       
       <Label Text="NeuChat" TextColor="#C8EDFF"
              HorizontalOptions="StartAndExpand" VerticalOptions="Center" 
@@ -25,7 +41,7 @@
 
       <Button Text="Logout"
               Command="{Binding LogoutCommand}"
-              HorizontalOptions="End" VerticalOptions="Center" />
+              HorizontalOptions="End" VerticalOptions="CenterAndExpand" />
     </StackLayout>
 
     <RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
@@ -48,7 +64,7 @@
                 <ViewCell.View>
                   <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="5">
                     <StackLayout VerticalOptions="CenterAndExpand" Orientation="Vertical">
-                      <Label Text="{Binding Sender}" TextColor="#003399" HorizontalOptions="Center" />
+                      <Label Text="{Binding Sender}" TextColor="#003399" HorizontalOptions="Center" Font="Micro" />
                       <Label Text="{Binding SentUtc}" TextColor="#777" Font="Italic,Micro" />
                     </StackLayout>
 
