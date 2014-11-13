@@ -46,13 +46,13 @@ namespace NeuChat.iOS {
         }
 
         public void Logout() {
-            MainView = App.GetMainPage().CreateViewController();
+            MainView = App.GetLoginPage().CreateViewController();
             window.RootViewController = MainView;
             window.MakeKeyAndVisible();
         }
 
         public void ShowMainPage() {
-            MainView = App.GetLoginPage().CreateViewController();
+            MainView = App.GetMainPage().CreateViewController();
             window.RootViewController = MainView;
             window.MakeKeyAndVisible();
         }
