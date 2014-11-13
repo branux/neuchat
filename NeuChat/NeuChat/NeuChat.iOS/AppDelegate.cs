@@ -38,7 +38,7 @@ namespace NeuChat.iOS {
 
             window = new UIWindow(UIScreen.MainScreen.Bounds);
 
-            MainView = App.GetMainPage().CreateViewController();
+            MainView = App.GetLoginPage().CreateViewController();
             window.RootViewController = MainView;
             window.MakeKeyAndVisible();
 
