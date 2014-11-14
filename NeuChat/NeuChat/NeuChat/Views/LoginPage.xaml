@@ -17,8 +17,8 @@
     </OnPlatform>
   </ContentPage.Padding>
   
-  <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical">
-    <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+  <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
       <Grid.RowDefinitions>
         <RowDefinition Height="3*" />
         <RowDefinition Height="*" />
@@ -26,6 +26,19 @@
       
       <Image Grid.Row="0" Source="neuchat_logo.png" />
 
+      <!--<StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical"
+                   Grid.Row="1">
+        <Image Source="btn_gplus_white_normal.png" />
+        
+        <Button
+              Text="Sign in with Google"
+              Font="Small"
+              HorizontalOptions="CenterAndExpand"
+              VerticalOptions="Center"
+              BackgroundColor="#2e3192"
+              TextColor="#cdf4ff"
+              Command="{Binding LoginCommand}" />
+      </StackLayout>-->
       <Button Grid.Row="1"
               Text="Sign in with Google"
               Image="btn_gplus_white_normal.png"
@@ -33,7 +46,7 @@
               VerticalOptions="Center"
               BackgroundColor="#2e3192"
               TextColor="#cdf4ff"
-              Command="{Binding LoginCommand}" />  
+              Command="{Binding LoginCommand}" />
     </Grid>
   </StackLayout>
 </ContentPage>

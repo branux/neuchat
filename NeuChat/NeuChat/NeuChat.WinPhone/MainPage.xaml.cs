@@ -24,7 +24,7 @@ namespace NeuChat.WinPhone {
             Bootstrapper.Configure();
             NeuChat.App.LoginManager = this;
 
-            Content = NeuChat.App.GetMainPage().ConvertPageToUIElement(this);
+            Content = NeuChat.App.GetLoginPage().ConvertPageToUIElement(this);
         }
 
         public void Logout() {
